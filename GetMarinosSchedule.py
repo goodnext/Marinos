@@ -36,11 +36,14 @@ def main():
             if cnt == 100:
                 break
             rows = schedule_rows.find_all("tr")
+
             for row in rows:
                 #会場取得
                 venue = row.findAll("td")[4].get_text()
+                print(venue)
                 venue_list = venue.split()
-                csv_dict['Location'] = venue_list[1]
+                if len(venue_list) > 1:
+                    csv_dict['Location'] = venue_list[1]
                 
 
                 #対戦チーム取得
